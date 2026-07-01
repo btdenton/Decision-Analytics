@@ -172,7 +172,7 @@ def animate_frames(frames, interval_ms: int = 30, title: str = "", gif_path: str
     def update(i):
         im.set_data(frames[i])
         return (im,)
-    animation.FuncAnimation(fig, update, frames=len(frames),interval=interval_ms, blit=True)
+    ani = animation.FuncAnimation(fig, update, frames=len(frames),interval=interval_ms, blit=True)
     plt.show()
     imageio.mimsave(gif_path, frames, duration=interval_ms / 1000.0)
     print(f"Saved GIF to: {gif_path}")
